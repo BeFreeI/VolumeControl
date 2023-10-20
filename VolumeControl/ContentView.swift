@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var progress: CGFloat = 0
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        HStack {
+            Spacer()
+            VStack {
+                Spacer()
+                VolumeControl(progress: $progress) 
+                    .frame(width: 100, height: 200)
+                Spacer()
+            }.ignoresSafeArea()
+            Spacer()
+        }.ignoresSafeArea()
+            .background(.gray.opacity(0.8))
     }
 }
 
